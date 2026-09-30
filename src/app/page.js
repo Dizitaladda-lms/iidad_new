@@ -21,6 +21,7 @@ import Testimonials from '@/components/HomeSection/Testimonials';
 import DemoBookingModal from "@/components/DemoBookingModal";
 import FloatingContactPanel from "@/components/FloatingContactPanel";
 import ScrollReveal from "@/components/common/ScrollReveal";
+import MouseSpotlight from "@/components/common/MouseSpotlight";
 export default function Home() {
   return (
     <main>
@@ -160,6 +161,10 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
         />
       ))}
+      <MouseSpotlight />
+      <div className="bg-ambient-orb-1" aria-hidden="true" />
+      <div className="bg-ambient-orb-2" aria-hidden="true" />
+      <div className="bg-ambient-orb-3" aria-hidden="true" />
       <DemoBookingModal />
       <HomeSection1 />
       <ScrollReveal animation="fade-up" duration={0.8} stagger={true}>

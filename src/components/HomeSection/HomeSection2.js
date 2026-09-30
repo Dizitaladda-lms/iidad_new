@@ -2,6 +2,7 @@
 "use client";
 import React, { useRef } from 'react';
 import styles from "./homeSection2.module.css";
+import CounterNumber from "@/components/common/CounterNumber";
 
 export default function HomeSection2() {
   const sectionRef = useRef(null);
@@ -11,7 +12,7 @@ export default function HomeSection2() {
       <div className={styles.leftCol} data-reveal-child="">
         <h2 className={styles.bigTitle}>Innovation Through Education</h2>
         <p className={styles.heroDesc}>
-            IIDAD Has Been Created About <span style={{color:"#57d773"}}>25</span> Thousand+ Developer in last <span style={{color:"#57d773"}}>12</span> Years between the Age of <span style={{color:"#57d773"}}>10</span> years to <span style={{color:"#57d773"}}>55</span> Years with Exellent Placement Rate With Average <span style={{color:"#57d773"}}>12</span> LPA Salary.</p>
+            IIDAD Has Been Created About <span style={{color:"#57d773", fontWeight: 700}}><CounterNumber value="25" /></span> Thousand+ Developer in last <span style={{color:"#57d773", fontWeight: 700}}><CounterNumber value="12" /></span> Years between the Age of <span style={{color:"#57d773", fontWeight: 700}}>10</span> years to <span style={{color:"#57d773", fontWeight: 700}}>55</span> Years with Exellent Placement Rate With Average <span style={{color:"#57d773", fontWeight: 700}}><CounterNumber value="12" /></span> LPA Salary.</p>
         <div className={styles.ctaRow}>
           <span className={styles.ctaMain}>Why 25,000+ Learners Chose Us</span>
         </div>

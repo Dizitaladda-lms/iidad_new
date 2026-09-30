@@ -1,4 +1,5 @@
 import styles from "./placementSection.module.css";
+import CounterNumber from "@/components/common/CounterNumber";
 
 const stats = [
   {
@@ -51,7 +52,9 @@ export default function PlacementSection() {
           <div className={styles.statsGrid}>
             {stats.map((item) => (
               <div key={item.label} className={styles.statCard} data-reveal-child="">
-                <span className={styles.statValue}>{item.value}</span>
+                <span className={styles.statValue}>
+                  <CounterNumber value={item.value} duration={1.6} />
+                </span>
                 <span className={styles.statLabel}>{item.label}</span>
                 <span className={styles.statDetail}>{item.detail}</span>
               </div>
