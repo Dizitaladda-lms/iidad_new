@@ -109,31 +109,22 @@
 .graphicWrapper {
   position: relative;
   width: 100%;
-  max-width: 450px;
-  height: 500px;
+  max-width: 500px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .bgGraphic {
-  position: absolute;
-  right: -10%;
-  top: 62%;
-  transform: translateY(-50%);
-  width: 110%;
+  position: relative;
+  width: 100%;
+  max-width: 480px;
   height: auto;
   object-fit: contain;
   pointer-events: none;
-  /* opacity: 0.3; */
-}
-
-.personImage {
-  position: relative;
-  z-index: 2;
-  height: 110%;
-  width: auto;
-  object-fit: contain;
+  opacity: 0.85;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
 

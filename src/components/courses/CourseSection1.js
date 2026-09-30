@@ -83,14 +83,8 @@ const CourseSection1 = () => {
           <div className={styles.graphicWrapper}>
             <img
               src="/uploads/graphic (1).png"
-              alt=""
+              alt="IIDAD Typography"
               className={styles.bgGraphic}
-            />
-
-            <img
-              src="/uploads/manjeet3-removebg-preview (1).png"
-              alt="iidad Professional"
-              className={styles.personImage}
             />
           </div>
         </div>
