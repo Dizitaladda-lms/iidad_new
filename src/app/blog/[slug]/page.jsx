@@ -2,17 +2,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import prisma from "@/lib/prisma";
 import { getBaseUrl } from "@/lib/base-url";
 import BlogCard from "@/components/BlogCard";
 
 export const dynamic = "force-dynamic";
 
-// Fetch a single blog by slug from the API
+// Fetch a single blog by slug directly from database
 const fetchBlog = async (slug) => {
-  const baseUrl = await getBaseUrl();
-  const res = await fetch(`${baseUrl}/api/blog/${slug}`, { cache: "no-store" });
-  if (!res.ok) return null;
-  return res.json();
+  try {
+    return await prisma.blog.findUnique({
+      where: { slug },
+    });
+  } catch (error) {
+    console.error("fetchBlog error:", error);
+    return null;
+  }
 };
 
 const normalizeBlogHtml = (html) => {
@@ -20,14 +25,30 @@ const normalizeBlogHtml = (html) => {
   return String(html).replace(/&nbsp;/g, " ").replace(/\u00A0/g, " ");
 };
 
-// Fetch related blogs (by shared tags) with a safe fallback to latest posts.
-const fetchRelated = async (slug) => {
-  const baseUrl = await getBaseUrl();
-  const qs = new URLSearchParams({ relatedTo: slug, limit: "4" });
-  const res = await fetch(`${baseUrl}/api/blog?${qs.toString()}`, { cache: "no-store" });
-  if (!res.ok) return { data: [] };
-  const json = await res.json();
-  return { data: json?.data || [] };
+// Fetch related blogs directly from database
+const fetchRelated = async (slug, tags = []) => {
+  try {
+    const filters = [{ slug: { not: slug } }];
+    if (Array.isArray(tags) && tags.length > 0) {
+      filters.push({ tags: { hasSome: tags } });
+    }
+    const related = await prisma.blog.findMany({
+      where: { AND: filters },
+      orderBy: { createdAt: "desc" },
+      take: 4,
+    });
+    if (related && related.length > 0) return { data: related };
+
+    const fallback = await prisma.blog.findMany({
+      where: { slug: { not: slug } },
+      orderBy: { createdAt: "desc" },
+      take: 4,
+    });
+    return { data: fallback || [] };
+  } catch (error) {
+    console.error("fetchRelated error:", error);
+    return { data: [] };
+  }
 };
 
 export async function generateMetadata(props) {
@@ -124,7 +145,7 @@ export default async function BlogDetails(props) {
 
   const contentHtml = normalizeBlogHtml(blog.content);
 
-  const related = await fetchRelated(slug);
+  const related = await fetchRelated(slug, blog.tags);
   const cover = blog.coverImg?.trim();
   const isExternalCover = Boolean(cover && /^(https?:)?\/\//i.test(cover));
   const hasCover = Boolean(cover);
@@ -147,7 +168,7 @@ export default async function BlogDetails(props) {
         <script
           key={index}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
         />
       ))}
       <div className="blog-detail__layout">

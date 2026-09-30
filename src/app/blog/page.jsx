@@ -1,20 +1,58 @@
 import Link from "next/link";
 import BlogCard from "@/components/BlogCard";
-import { getBaseUrl } from "@/lib/base-url";
+import prisma from "@/lib/prisma";
 
-const fetchBlogs = async (searchParams) => {
-  const baseUrl = await getBaseUrl();
-  const queryString = new URLSearchParams(searchParams).toString();
-  const separator = queryString ? "?" : "";
-  const res = await fetch(`${baseUrl}/api/blog${separator}${queryString}`, {
-    next: { revalidate: 60 },
-  });
+const DEFAULT_LIMIT = 9;
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch blogs");
+const fetchBlogs = async (params = {}) => {
+  try {
+    const page = Math.max(1, Number(params.page) || 1);
+    const limit = Math.min(Math.max(Number(params.limit) || DEFAULT_LIMIT, 1), 24);
+    const search = params.search?.trim();
+    const tag = params.tag?.trim();
+
+    const filters = [];
+    if (search) {
+      filters.push({
+        OR: [
+          { title: { contains: search, mode: "insensitive" } },
+          { content: { contains: search, mode: "insensitive" } },
+          { tags: { has: search.toLowerCase() } },
+          { keywords: { has: search.toLowerCase() } },
+        ],
+      });
+    }
+
+    if (tag) {
+      filters.push({ tags: { has: tag.toLowerCase() } });
+    }
+
+    const where = filters.length ? { AND: filters } : undefined;
+    const skip = (page - 1) * limit;
+
+    const [items, count] = await Promise.all([
+      prisma.blog.findMany({
+        where,
+        orderBy: { createdAt: "desc" },
+        skip,
+        take: limit,
+      }),
+      prisma.blog.count({ where }),
+    ]);
+
+    return {
+      data: items,
+      pagination: {
+        page,
+        limit,
+        total: count,
+        totalPages: Math.max(1, Math.ceil(count / limit)),
+      },
+    };
+  } catch (error) {
+    console.error("fetchBlogs direct query failed:", error);
+    return { data: [], pagination: { page: 1, limit: DEFAULT_LIMIT, total: 0, totalPages: 1 } };
   }
-
-  return res.json();
 };
 
 export const metadata = {

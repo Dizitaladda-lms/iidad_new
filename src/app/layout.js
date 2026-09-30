@@ -11,16 +11,18 @@ const geistSans = Geist({
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono ",
+  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://iidad.in'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iidad.com'),
   title: {
     default: "Best Institute for Web Development | Create Sites with Confidence"
   },
-  canonical: "https://www.iidad.com/",
+  alternates: {
+    canonical: "https://www.iidad.com/",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -78,10 +80,10 @@ export const metadata = {
     ],
   },
   twitter: {
-    card: "/thumbnail.png",
+    card: "summary_large_image",
     title: "Best Institute for Web Development | Create Sites with Confidence",
-    description: "If you want a career in tech, learn from the best institute for web development. Our swebsite development course turns beginners into confident creators.",
-    images: ["/og-image.png"],
+    description: "If you want a career in tech, learn from the best institute for web development. Our website development course turns beginners into confident creators.",
+    images: ["/thumbnail.png"],
     creator: "@iidad",
   },
   robots: {

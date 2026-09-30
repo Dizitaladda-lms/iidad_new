@@ -6,21 +6,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "i.ibb.co",
       },
+      {
+        protocol: "https",
+        hostname: "ibb.co",
+      },
     ],
-  },
-  async redirects() {
-    return [
-      {
-        source: "/sitemap",
-        destination: "/sitemap.html",
-        permanent: true,
-      },
-      {
-        source: "/sitemap/",
-        destination: "/sitemap.html",
-        permanent: true,
-      },
-    ];
   },
   async rewrites() {
     return [

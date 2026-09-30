@@ -51,7 +51,7 @@ export const getBaseUrl = async () => {
 
   // Avoid falling back to localhost in production.
   if (process.env.NODE_ENV === "production") {
-    return "https://iidad.in";
+    return "https://www.iidad.com";
   }
 
   return "http://localhost:3000";

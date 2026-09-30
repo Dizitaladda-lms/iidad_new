@@ -11,8 +11,8 @@ export default function StructuredData({ type = "organization" }) {
     "@type": "EducationalOrganization",
     "name": "Indian Institute of Design and Development",
     "alternateName": "IIDAD",
-    "url": "https://iidad.com",
-    "logo": "https://iidad.com/g10.png",
+    "url": "https://www.iidad.com",
+    "logo": "https://www.iidad.com/g10.png",
     "description": "Become a confident developer with our full stack developer course. Learn front-end, back-end, and tools used by real professionals in today's tech world.",
     "address": {
       "@type": "PostalAddress",
@@ -36,10 +36,10 @@ export default function StructuredData({ type = "organization" }) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "IIDAD - Indian Institute of Design and Development",
-    "url": "https://iidad.com",
+    "url": "https://www.iidad.com",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://iidad.com/blog?search={search_term_string}",
+      "target": "https://www.iidad.com/blog?search={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };
@@ -52,7 +52,7 @@ export default function StructuredData({ type = "organization" }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://iidad.com"
+        "item": "https://www.iidad.com"
       }
     ]
   };
@@ -75,7 +75,7 @@ export default function StructuredData({ type = "organization" }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
     />
   );
 }

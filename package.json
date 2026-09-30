@@ -23,7 +23,6 @@
     "next": "^16.0.7",
     "react": "latest",
     "react-dom": "latest",
-    "react-icon": "^1.0.0",
     "react-icons": "^5.5.0",
     "react-quill-new": "^3.7.0"
   },

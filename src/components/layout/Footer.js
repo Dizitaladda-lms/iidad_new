@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import './footer.css';
 import { FaInstagram, FaLinkedin, FaFacebook } from 'react-icons/fa';
 
@@ -31,7 +32,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-              <div className="footer-icons" style={{ marginTop: 'auto', display: 'flex', gap: '16px', flexDirection: 'row' }}>
+            <div className="footer-icons" style={{ marginTop: 'auto', display: 'flex', gap: '16px', flexDirection: 'row' }}>
               <a href="https://www.instagram.com/iidad_officials/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FaInstagram size={42} />
               </a>
@@ -48,16 +49,16 @@ const Footer = () => {
             <div className="footer-links">
               <div>
                 {footerLinks.map(link => (
-                  <a className="footer-link" href={link.href} key={link.label}>
+                  <Link className="footer-link" href={link.href} key={link.label}>
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
               <div>
                 {footerLinksRight.map(link => (
-                  <a className="footer-link" href={link.href} key={link.label}>
+                  <Link className="footer-link" href={link.href} key={link.label}>
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -66,7 +67,7 @@ const Footer = () => {
           <div className="footer-right">
             <div className="footer-contact-info">
               <div>
-                <a href="mailto:info@iidad.com" className="footer-contact-link">info@iidad.com</a>
+                <a href="mailto:info@iidad.in" className="footer-contact-link">info@iidad.in</a>
               </div>
               <div>
                 <a href="tel:+919205435653" className="footer-contact-link">+91 92054 35653</a>
@@ -85,7 +86,6 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-          
           </div>
         </div>
       </div>
@@ -93,11 +93,11 @@ const Footer = () => {
       <div className="footer-legal">
         © {year} IIDAD. All rights reserved.{' '}
         <span className="footer-legal-sep">|</span>{' '}
-        <a className="footer-legal-link" href="/privacy-policy">Privacy Policy</a>{' '}
+        <Link className="footer-legal-link" href="/privacy-policy">Privacy Policy</Link>{' '}
         <span className="footer-legal-sep">|</span>{' '}
-        <a className="footer-legal-link" href="/terms-and-conditions">Terms &amp; Conditions</a>{' '}
+        <Link className="footer-legal-link" href="/terms-and-conditions">Terms &amp; Conditions</Link>{' '}
         <span className="footer-legal-sep">|</span>{' '}
-        <a className="footer-legal-link" href="/sitemap.html">Sitemap</a>
+        <Link className="footer-legal-link" href="/sitemap">Sitemap</Link>
       </div>
     </>
   );

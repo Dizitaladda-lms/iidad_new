@@ -72,10 +72,20 @@ const parseSchemasArray = (schemas) => {
   return parsed;
 };
 
-// Strip inline styles and unsafe tags from rich text HTML before saving
+// Strip scripts, dangerous tags, inline styles, and event handlers from rich text HTML before saving
 const sanitizeContent = (html) => {
   if (!html || typeof html !== "string") return "";
   return html
+    // Remove script tags and contents
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
+    // Remove object, embed, applet tags
+    .replace(/<object\b[^>]*>[\s\S]*?<\/object>/gi, "")
+    .replace(/<embed\b[^>]*>/gi, "")
+    .replace(/<applet\b[^>]*>[\s\S]*?<\/applet>/gi, "")
+    // Remove inline event handlers (onerror, onload, onclick, onmouseover, etc.)
+    .replace(/\son[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    // Remove javascript: pseudo-protocol in href/src
+    .replace(/(href|src)\s*=\s*["']\s*javascript:[^"']*["']/gi, '$1=""')
     // Remove style attributes (double and single quoted)
     .replace(/\sstyle=\"[^\"]*\"/gi, "")
     .replace(/\sstyle='[^']*'/gi, "")

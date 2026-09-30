@@ -140,7 +140,10 @@ export default function Home() {
           "@type": "Product",
           "name": "iidad",
           "image": "https://www.iidad.com/courseThumbnail/diploma/FULLSTACK%20DEVELOPMENT%2012months.png",
-          "brand": "https://www.iidad.com/courses/diploma-in-fullstack-development",
+          "brand": {
+            "@type": "Brand",
+            "name": "IIDAD"
+          },
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5",
@@ -153,7 +156,7 @@ export default function Home() {
         <script
           key={index}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
         />
       ))}
       <DemoBookingModal />

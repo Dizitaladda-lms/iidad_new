@@ -139,10 +139,16 @@ export async function PUT(request, context) {
       return NextResponse.json({ error: error.message || "Invalid schemas" }, { status: 400 });
     }
 
-    // Sanitize content: strip inline styles and unsafe tags before update
+    // Sanitize content: strip scripts, dangerous tags, inline styles, and event handlers before update
     const sanitizeContent = (html) => {
       if (!html || typeof html !== "string") return "";
       return html
+        .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
+        .replace(/<object\b[^>]*>[\s\S]*?<\/object>/gi, "")
+        .replace(/<embed\b[^>]*>/gi, "")
+        .replace(/<applet\b[^>]*>[\s\S]*?<\/applet>/gi, "")
+        .replace(/\son[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+        .replace(/(href|src)\s*=\s*["']\s*javascript:[^"']*["']/gi, '$1=""')
         .replace(/\sstyle=\"[^\"]*\"/gi, "")
         .replace(/\sstyle='[^']*'/gi, "")
         .replace(/<\/?font[^>]*>/gi, "")
