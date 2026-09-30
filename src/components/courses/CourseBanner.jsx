@@ -525,25 +525,28 @@ export default function CourseBanner({ course, recommendedCourses = [] }) {
             {recommendedCourses.map((c) => {
               const { price: recPrice, oldPrice: recOld } = computePrices(c.duration);
                 const recMonths = Math.max(1, Number(c.duration) || 1);
-              const img = c.img || `/courseThumbnail/${c.slug}.jpg`;
               return (
                 <article key={c.slug} className={styles.recoCard}>
                   <Link href={`/courses/${c.slug}`} className={styles.recoCardLink}>
-                    <div className={styles.recoImageWrap}>
-                      <img src={img} alt={c.title} className={styles.recoImage} />
-                      {c.tags?.includes('Bestseller') && (
-                        <span className={styles.badge}>Bestseller</span>
-                      )}
-                    </div>
-
                     <div className={styles.recoBody}>
+                      <div className={styles.recoTopRow}>
+                        {c.tags?.includes('Bestseller') ? (
+                          <span className={styles.badgeInline}>Bestseller</span>
+                        ) : (
+                          <span className={styles.programPill}>
+                            {c.duration >= 12 ? 'Diploma' : c.duration >= 6 ? 'Advanced' : 'Certification'}
+                          </span>
+                        )}
+                        <span className={styles.recoDuration}>{c.duration} months</span>
+                      </div>
+
                       <h3 className={styles.recoTitle}>{c.title}</h3>
                       <p className={styles.recoAuthor}>{c.author}</p>
 
                       <div className={styles.recoRatingRow}>
+                        <span className={styles.ratingStar}>★</span>
                         <span className={styles.recoRatingValue}>{c.rating}</span>
                         <span className={styles.recoRatingCount}>({c.ratingsCount})</span>
-                        <span className={styles.recoDuration}>{c.duration} months</span>
                       </div>
 
                       <div className={styles.recoPriceRow}>

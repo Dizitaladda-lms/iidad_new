@@ -377,6 +377,7 @@
   background: #111827;
   border-radius: 12px;
   border: 1px solid #1f2937;
+  border-top: 3px solid #1f2937;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -388,6 +389,7 @@
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   border-color: #374151;
+  border-top-color: #9fff8b;
 }
 
 /* Make the whole card clickable when wrapped with a link */
@@ -432,19 +434,57 @@
   letter-spacing: 0.5px;
 }
 
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.badgeInline {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #fbbf24;
+  color: #000000;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.programPill {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(159, 255, 139, 0.1);
+  color: #9fff8b;
+  border: 1px solid rgba(159, 255, 139, 0.25);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ratingStar {
+  color: #fbbf24;
+  font-size: 14px;
+  line-height: 1;
+}
+
 .cardBody {
-  padding: 16px;
+  padding: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .cardTitle {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
   color: #f9fafb;
+  min-height: 44px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;

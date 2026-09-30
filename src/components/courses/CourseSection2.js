@@ -338,21 +338,25 @@ const CourseSection2 = ({ variant = "default" }) => {
               {filteredCourses.map((course) => (
                 <article key={course.id} className={styles.card}>
                   <Link href={`/courses/${course.slug}`} className={styles.cardLink}>
-                    <div className={styles.cardImageWrapper}>
-                      <img src={course.img} alt={course.title} className={styles.cardImage} />
-                      {course.tags.includes("Bestseller") && (
-                        <span className={styles.badge}>Bestseller</span>
-                      )}
-                    </div>
-
                     <div className={styles.cardBody}>
+                      <div className={styles.cardTopRow}>
+                        {course.tags.includes("Bestseller") ? (
+                          <span className={styles.badgeInline}>Bestseller</span>
+                        ) : (
+                          <span className={styles.programPill}>
+                            {course.duration >= 12 ? 'Diploma' : course.duration >= 6 ? 'Advanced' : 'Certification'}
+                          </span>
+                        )}
+                        <span className={styles.durationBadge}>{course.duration} months</span>
+                      </div>
+
                       <h3 className={styles.cardTitle}>{course.title}</h3>
                       <p className={styles.cardAuthor} style={{ marginTop: "auto" }}>{course.author}</p>
 
                       <div className={styles.ratingRow}>
+                        <span className={styles.ratingStar}>★</span>
                         <span className={styles.ratingValue}>{course.rating}</span>
                         <span className={styles.ratingCount}>({course.ratingsCount})</span>
-                        <span className={styles.durationBadge}>{course.duration} months</span>
                       </div>
 
                       <div className={styles.priceRow}>
