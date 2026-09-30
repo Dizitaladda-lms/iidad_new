@@ -20,6 +20,7 @@ import AudioMarquee from '@/components/AudioMarquee';
 import Testimonials from '@/components/HomeSection/Testimonials';
 import DemoBookingModal from "@/components/DemoBookingModal";
 import FloatingContactPanel from "@/components/FloatingContactPanel";
+import ScrollReveal from "@/components/common/ScrollReveal";
 export default function Home() {
   return (
     <main>
@@ -161,18 +162,42 @@ export default function Home() {
       ))}
       <DemoBookingModal />
       <HomeSection1 />
-      <HomeSectionDegreePrograms />
-      <HomeSection2 />
-      <HomeSection3 />
-      <CourseSection2 variant="home" />
-      <Testimonials/>
-      <PlacementSection />
-      <CampusSection />
-      <HomeBlogSection />
-      <HomeSection4 />
-      <Homesection5 />
-      <HomeSection7 />
-      <HomeSection6 />
+      <ScrollReveal animation="fade-up" duration={0.8} stagger={true}>
+        <HomeSectionDegreePrograms />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8} stagger={true} staggerDelay={0.15}>
+        <HomeSection2 />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8}>
+        <HomeSection3 />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8}>
+        <CourseSection2 variant="home" />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8} stagger={true}>
+        <Testimonials />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8} stagger={true}>
+        <PlacementSection />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8} stagger={true}>
+        <CampusSection />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8} stagger={true}>
+        <HomeBlogSection />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8} stagger={true}>
+        <HomeSection4 />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8} stagger={true}>
+        <Homesection5 />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8}>
+        <HomeSection7 />
+      </ScrollReveal>
+      <ScrollReveal animation="fade-up" duration={0.8}>
+        <HomeSection6 />
+      </ScrollReveal>
       <FloatingContactPanel />
     </main>
   );

@@ -56,7 +56,7 @@ export default function HomeSection3() {
 
       <div className={styles.cardGrid}>
         {testimonials.map((item) => (
-          <article key={item.name} className={styles.card}>
+          <article key={item.name} className={styles.card} data-reveal-child="">
             <div className={styles.cardHeader}>
               <div className={styles.initial}>{item.name.charAt(0)}</div>
               <div className={styles.meta}>

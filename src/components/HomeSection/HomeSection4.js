@@ -36,7 +36,7 @@ export default function HomeSection4() {
       </div>
       <div className={styles.cardsGrid}>
         {cardData.map((card, idx) => (
-          <div key={card.label + idx} className={styles.cardItem}>
+          <div key={card.label + idx} className={styles.cardItem} data-reveal-child="">
             <div className={styles.cardImgBox}>
               <video
                 src={card.video}

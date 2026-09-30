@@ -40,7 +40,7 @@ export default function CampusSection() {
 
         <div className={styles.grid}>
           {campusShots.map((shot) => (
-            <figure key={shot.src} className={styles.card}>
+            <figure key={shot.src} className={styles.card} data-reveal-child="">
               <div className={styles.imageWrap}>
                 <img src={shot.src} alt={shot.label} className={styles.image} loading="lazy" />
                 <div className={styles.tag}>{shot.label}</div>

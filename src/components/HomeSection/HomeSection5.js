@@ -68,7 +68,7 @@ export default function HomeSection5() {
       </h2>
       <div className={styles.grid}>
         {cards.map((card, i) => (
-          <div className={styles.card} key={card.title + i}>
+          <div className={styles.card} key={card.title + i} data-reveal-child="">
             <div className={styles.pillArrowWrapper}>
               <PillArrow size={120} />
             </div>

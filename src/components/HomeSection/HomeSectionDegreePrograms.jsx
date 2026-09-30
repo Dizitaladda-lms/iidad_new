@@ -47,7 +47,7 @@ export default function HomeSectionDegreePrograms() {
         {/* 2-column card grid */}
         <div className={styles.grid}>
           {CARDS.map((card) => (
-            <div key={card.href} className={styles.card}>
+            <div key={card.href} className={styles.card} data-reveal-child="">
               <div className={styles.cardTop}>
                 <span className={styles.cardCategory}>{card.category}</span>
                 <span className={styles.cardBadge}>{card.badge}</span>

@@ -8,7 +8,7 @@ export default function HomeSection2() {
 
   return (
     <section ref={sectionRef} className={styles.sectionWrapper}>
-      <div className={styles.leftCol}>
+      <div className={styles.leftCol} data-reveal-child="">
         <h2 className={styles.bigTitle}>Innovation Through Education</h2>
         <p className={styles.heroDesc}>
             IIDAD Has Been Created About <span style={{color:"#57d773"}}>25</span> Thousand+ Developer in last <span style={{color:"#57d773"}}>12</span> Years between the Age of <span style={{color:"#57d773"}}>10</span> years to <span style={{color:"#57d773"}}>55</span> Years with Exellent Placement Rate With Average <span style={{color:"#57d773"}}>12</span> LPA Salary.</p>
@@ -21,7 +21,7 @@ export default function HomeSection2() {
         </div>
       </div>
 
-      <div className={styles.rightCol}>
+      <div className={styles.rightCol} data-reveal-child="">
         <div className={styles.videoWrapper}>
           <img
             src="/teamIIDAD.png"

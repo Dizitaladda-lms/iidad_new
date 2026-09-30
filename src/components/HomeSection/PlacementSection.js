@@ -50,7 +50,7 @@ export default function PlacementSection() {
           </p>
           <div className={styles.statsGrid}>
             {stats.map((item) => (
-              <div key={item.label} className={styles.statCard}>
+              <div key={item.label} className={styles.statCard} data-reveal-child="">
                 <span className={styles.statValue}>{item.value}</span>
                 <span className={styles.statLabel}>{item.label}</span>
                 <span className={styles.statDetail}>{item.detail}</span>

@@ -62,7 +62,9 @@ export default function HomeBlogSection() {
       ) : (
         <div className={`blog-grid ${styles.grid}`}>
           {blogs.map((blog) => (
-            <BlogCard key={blog.id} blog={blog} />
+            <div key={blog.id} data-reveal-child="" style={{ height: '100%' }}>
+              <BlogCard blog={blog} />
+            </div>
           ))}
         </div>
       )}
