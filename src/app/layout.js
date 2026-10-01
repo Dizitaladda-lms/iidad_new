@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iidad.com'),
+  metadataBase: new URL('https://www.iidad.com'),
   title: {
     default: "Best Institute for Web Development | Create Sites with Confidence"
   },
   alternates: {
-    canonical: "https://www.iidad.com/",
+    canonical: "/",
   },
   icons: {
     icon: [
@@ -66,8 +66,8 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "/",
-    siteName: "IIDAD - Indian Institute of Design and Development",
+    url: "https://www.iidad.com",
+    siteName: "iidad",
     title: "Best Institute for Web Development | Create Sites with Confidence",
     description: "If you want a career in tech, learn from the best institute for web development. Our website development course turns beginners into confident creators.",
     images: [

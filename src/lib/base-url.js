@@ -44,12 +44,7 @@ export const getBaseUrl = async () => {
     return normalize(process.env.NEXT_PUBLIC_APP_URL);
   }
 
-  // Vercel provides VERCEL_URL in production builds/runtimes.
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
-  }
-
-  // Avoid falling back to localhost in production.
+  // Avoid falling back to preview URLs or localhost in production.
   if (process.env.NODE_ENV === "production") {
     return "https://www.iidad.com";
   }

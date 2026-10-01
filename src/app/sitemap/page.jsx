@@ -1,6 +1,14 @@
 import Link from "next/link";
 import courses from "@/data/courses.json";
 
+export const metadata = {
+  title: "HTML Sitemap | IIDAD",
+  description: "Overview of all pages, programs, and blogs on IIDAD.",
+  alternates: {
+    canonical: "https://www.iidad.com/sitemap",
+  },
+};
+
 export const dynamic = "force-static";
 export const revalidate = 86400;
 
