@@ -124,10 +124,8 @@ export default function HomeSection7() {
       <div className={styles.arcBackground}></div>
       <div className={styles.headerCircleArc}>
         <h2 className={styles.header}>
-          Partnered with most of the<br />
-          <span className={styles.headerBlue}>
-            top people at each industry
-          </span>
+           Our Best Facultiy <br />
+          
         </h2>
       </div>
       <div
