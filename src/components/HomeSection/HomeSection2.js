@@ -49,7 +49,7 @@ export default function HomeSection2() {
                 <span className={styles.pillStar}>★</span>
               </div>
               <div className={styles.pillTextGroup}>
-                <span className={styles.pillTitle}>Senior Software Architect</span>
+                <span className={styles.pillTitle}>Senior Mentor</span>
                 <span className={styles.pillSub}>Hands-On Mentorship &amp; Live Projects</span>
               </div>
             </div>
