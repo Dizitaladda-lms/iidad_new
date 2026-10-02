@@ -10,7 +10,7 @@ export const allCourses = [
     ratingsCount: '1,240',
     duration: 3,
     tags: [],
-    img: '/courseThumbnail/certification/java%20script%203%20months.png',
+    img: '/courseThumbnail/certification/javascript-development.webp',
     description:
       'A compact certification covering core JavaScript concepts, DOM manipulation, and modern tooling for building interactive web experiences.',
   },
@@ -22,7 +22,7 @@ export const allCourses = [
     ratingsCount: '980',
     duration: 4,
     tags: [],
-    img: '/courseThumbnail/certification/CSS%20DEVELOPMENT%203%20months.png',
+    img: '/courseThumbnail/certification/css-development.webp',
     description:
       'Practical CSS course covering layouts, responsive design, modern CSS features and component-based styling approaches.',
   },
@@ -34,7 +34,7 @@ export const allCourses = [
     ratingsCount: '2,100',
     duration: 6,
     tags: ['Bestseller'],
-    img: '/courseThumbnail/advanced/frontend%206%20months.png',
+    img: '/courseThumbnail/advanced/advanced-frontend.webp',
     description: 'A deep dive into modern frontend engineering: frameworks, performance, and scalable architectures.',
   },
   {
@@ -45,7 +45,7 @@ export const allCourses = [
     ratingsCount: '1,750',
     duration: 6,
     tags: [],
-    img: '/courseThumbnail/advanced/BACKEND%206%20months.png',
+    img: '/courseThumbnail/advanced/advanced-backend.webp',
     description: 'Back-end systems, APIs, databases and deployment practices for production applications.',
   },
   {
@@ -56,7 +56,7 @@ export const allCourses = [
     ratingsCount: '1,430',
     duration: 6,
     tags: [],
-    img: '/courseThumbnail/advanced/Mobile%20app%20development%206%20months.png',
+    img: '/courseThumbnail/advanced/advanced-mobile-app.webp',
     description: 'Build cross-platform mobile apps using modern toolchains and UX best practices.',
   },
   {
@@ -67,7 +67,7 @@ export const allCourses = [
     ratingsCount: '860',
     duration: 6,
     tags: [],
-    img: '/courseThumbnail/advanced/QA%20TESTING%20CERTIFICATION%206%20months.png',
+    img: '/courseThumbnail/advanced/advanced-qa-testing.webp',
     description: 'Testing strategies, automation, and quality practices to ship reliable software.',
   },
   {
@@ -89,7 +89,7 @@ export const allCourses = [
     ratingsCount: '3,120',
     duration: 12,
     tags: [],
-    img: '/courseThumbnail/diploma/FRONTEND%20DEVELOPMENT%2012months.png',
+    img: '/courseThumbnail/diploma/diploma-frontend.webp',
     description: 'A year-long diploma that prepares you for a career as a frontend developer.',
   },
   {
@@ -124,6 +124,17 @@ export const allCourses = [
     tags: [],
     img: '/courseThumbnail/certification/three.js.png',
     description: 'Create web animations and interactive visualizations using three.js.',
+  },
+  {
+    id: 12,
+    title: 'Diploma in Backend Development',
+    author: 'IIDAD Academy',
+    rating: 4.6,
+    ratingsCount: '1,750',
+    duration: 12,
+    tags: [],
+    img: '/courseThumbnail/diploma/diploma-backend.webp',
+    description: 'Comprehensive backend diploma focused on reliability, APIs and data modeling.',
   },
   {
     id: 13,
