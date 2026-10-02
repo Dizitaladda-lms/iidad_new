@@ -51,6 +51,34 @@ export default function GoogleTranslateScript() {
       script.async = true;
       document.body.appendChild(script);
     }
+
+    // Continuously suppress Google Translate banner frame and body top offset
+    const hideBanner = () => {
+      if (typeof document !== "undefined") {
+        document.body.style.top = "0px";
+        document.body.style.position = "static";
+        document.documentElement.style.top = "0px";
+
+        const banners = document.querySelectorAll(
+          ".goog-te-banner-frame, iframe.goog-te-banner-frame, iframe.skiptranslate, .VIpgJd-yDsffb-Lg26de, #goog-gt-tt"
+        );
+        banners.forEach((b) => {
+          if (b) {
+            b.style.display = "none";
+            b.style.visibility = "hidden";
+            b.style.height = "0px";
+            b.style.width = "0px";
+            b.style.opacity = "0";
+            b.style.pointerEvents = "none";
+          }
+        });
+      }
+    };
+
+    hideBanner();
+    const interval = setInterval(hideBanner, 300);
+
+    return () => clearInterval(interval);
   }, []);
 
   return <div id="google_translate_element" style={{ display: "none" }} />;
