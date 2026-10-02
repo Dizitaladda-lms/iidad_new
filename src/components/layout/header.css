@@ -391,14 +391,135 @@ font-weight: 1000;
   }
 }
 
-@media (max-width: 429px) {
+/* =============================== */
+/* COUNTRY & LANGUAGE SELECTOR     */
+/* =============================== */
+.country-selector-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
-@media (max-width: 374px) {
-  
+.country-selector-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
-
-@media (max-width: 357px) {
-
+.country-selector-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
 }
+
+.country-flag-img {
+  width: 22px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.country-btn-text {
+  font-weight: 500;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+.country-arrow {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: transform 0.25s ease;
+  margin-left: 2px;
+}
+
+.country-arrow.open {
+  transform: rotate(180deg);
+}
+
+.country-dropdown-list {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  width: 220px;
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 100000;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Custom Scrollbar for country list */
+.country-dropdown-list::-webkit-scrollbar {
+  width: 6px;
+}
+.country-dropdown-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+.country-dropdown-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.country-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.country-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #9fff8b;
+}
+
+.country-dropdown-item.active {
+  background: rgba(159, 255, 139, 0.15);
+  color: #9fff8b;
+  font-weight: 600;
+}
+
+.country-item-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 752px) {
+  .country-selector-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+    gap: 6px;
+  }
+  .country-flag-img {
+    width: 18px;
+    height: 13px;
+  }
+  .country-btn-text {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .country-dropdown-list {
+    left: -20px;
+    width: 200px;
+  }
+}

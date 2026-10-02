@@ -1,20 +1,11 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+import CountrySelector from "./CountrySelector";
 import "./header.css";
 
 export default function Header() {
   const headerRef = useRef(null);
-
-  // GSAP animation: header drops in from above
-  // useEffect(() => {
-  //   gsap.from(headerRef.current, {
-  //     y: -200,
-  //     opacity: 0,
-  //     duration: 2,
-  //     ease: "power4.out"
-  //   });
-  // }, []);
 
   useEffect(() => {
     const menus = document.querySelectorAll(".delay-dropdown");
@@ -47,11 +38,14 @@ export default function Header() {
     };
   }, []);
 
-  
-
   return (
     <header ref={headerRef} className="header">
       <nav className="nav">
+        {/* Country & Language Selector */}
+        <CountrySelector />
+        
+        <div className="divider"></div>
+
         {/* Courses link - direct to /courses (no dropdown) */}
         <div className="dropdown-wrapper">
           <Link href="/courses" className="nav-btn">
